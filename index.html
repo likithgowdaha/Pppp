@@ -1,0 +1,766 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 1 <br/> <br/></p>
+<p><b>PROGRAM-1 <br/> <br/>1a) Write a Python program to find the best of two test average marks out of three test <br/></b></p>
+<p><b>marks accepted by the user. <br/></b></p>
+<p>def get_valid_test_score(): <br/></p>
+<p>    while True:  <br/></p>
+<p>        try: <br/></p>
+<p>            score = float(input(&quot;Enter a test score: &quot;)) <br/></p>
+<p>            if 0 &lt;= score &lt;= 100: <br/></p>
+<p>                return score <br/></p>
+<p>            else: <br/></p>
+<p>                print(&quot;Please enter a valid test score between 0 and 100.&quot;) <br/></p>
+<p>        except ValueError: <br/></p>
+<p>            print(&quot;Invalid input. Please enter a valid number.&quot;) <br/></p>
+<p>             <br/></p>
+<p># Input three test scores for a single student <br/></p>
+<p>test_scores = [] <br/></p>
+<p> <br/></p>
+<p>for i in range(3): <br/></p>
+<p>    test_scores.append(get_valid_test_score()) <br/></p>
+<p>     <br/></p>
+<p># Sort the test scores in descending order <br/></p>
+<p>test_scores.sort(reverse=True) <br/></p>
+<p> <br/></p>
+<p># Calculate the average of the best two test scores <br/></p>
+<p>best_two_averages = sum(test_scores[:2]) / 2 <br/></p>
+<p> <br/></p>
+<p># Output the result <br/></p>
+<p>    print(&quot;The average of the best two test scores is: {best_two_averages:.2f}&quot;) <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 2 <br/> <br/></p>
+<p><b>OUTPUT:  <br/></b></p>
+<p><b> <br/></b>1. Enter a test score: 98 <br/></p>
+<p>Enter a test score: 65 <br/>Enter a test score: 85 <br/>The average of the best two test scores is: 91.50 <br/> <br/></p>
+<p>2. Enter a test score: 52 <br/>Enter a test score: 52 <br/>Enter a test score: 48 <br/>The average of the best two test scores is: 52.00 <br/></p>
+<p> <br/>3. Enter a test score: -2 <br/></p>
+<p>Please enter a valid test score between 0 and 100. <br/> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> </p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 3 <br/> <br/></p>
+<p><b>1b) Develop a Python program to check whether a given number is palindrome or not and <br/>also count the number of occurrences of each digit in the input number. <br/></b></p>
+<p>def is_palindrome(number): <br/></p>
+<p>    number_str = str(number) <br/></p>
+<p>    return number_str == number_str[::-1] <br/></p>
+<p>def count_digits(number): <br/></p>
+<p>    digit_count = [0] * 10                   # Initialize a list to count each digit from 0 to 9 <br/></p>
+<p>    while number &gt;0: <br/></p>
+<p>        digit = number % 10                 # Get the last digit <br/></p>
+<p>        digit_count[digit] += 1             # Increment the count for that digit <br/></p>
+<p>        number //= 1                             # Remove the last digit <br/></p>
+<p>    return digit_count <br/></p>
+<p>try: <br/></p>
+<p>    num = int(input(&quot;Enter a number: &quot;)) <br/></p>
+<p>    if num &lt;0: <br/></p>
+<p>        print(&quot;Please enter a non-negative number.&quot;) <br/></p>
+<p>    else: <br/></p>
+<p>        if is_palindrome(num): <br/></p>
+<p>            print(f&quot;{num} is a palindrome.&quot;) <br/></p>
+<p>        else: <br/></p>
+<p>            print(f&quot;{num} is not a palindrome.&quot;) <br/></p>
+<p>        digit_count = count_digits(num) <br/></p>
+<p>        for digit, count in enumerate(digit_count): <br/></p>
+<p>            if count &gt;0: <br/></p>
+<p>                print(f&quot;Digit {digit} appears {count} times in the number.&quot;) <br/></p>
+<p>except ValueError: <br/></p>
+<p>     print(&quot;Invalid input. Please enter a valid integer.&quot;) <br/></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 4 <br/> <br/></p>
+<p><b>OUTPUT:  <br/></b> <br/></p>
+<p>1. Enter a number: 818 <br/>818 is a palindrome. <br/>Digit 1 appears 1 times in the number. <br/>Digit 8 appears 2 times in the number. <br/> <br/></p>
+<p>2. Enter a number: 123 <br/>123 is not a palindrome. <br/>Digit 1 appears 1 times in the number. <br/>Digit 2 appears 1 times in the number. <br/>Digit 3 appears 1 times in the number. <br/> <br/></p>
+<p>3. Enter a number: -125 <br/>Please enter a non-negative number. <br/> <br/> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 5 <br/> <br/></p>
+<p><b>Palindrome Program for strings <br/></b></p>
+<p>def is_palindrome(s): <br/></p>
+<p>    s = s.lower()     # Convert to lowercase to make it case-insensitive <br/></p>
+<p>    s = list(s)         #Convert the string to a list <br/></p>
+<p>    length = len(s) <br/></p>
+<p>    for i in range(length // 2): <br/></p>
+<p>        if s[i].isalnum() and s[length - i - 1].isalnum(): <br/></p>
+<p>            if s[i].lower() != s[length - i - 1].lower(): <br/></p>
+<p>                return False <br/></p>
+<p>        elif not s[i].isalnum(): <br/></p>
+<p>            while nots[i].isalnum():  <br/></p>
+<p>                i += 1 <br/></p>
+<p>        elif not s[length - i - 1].isalnum(): <br/></p>
+<p>            while nots[length-i-1].isalnum():  <br/></p>
+<p>                length -= 1 <br/></p>
+<p>    return True <br/></p>
+<p> <br/></p>
+<p># Input string from the user <br/></p>
+<p>string = input(&quot;Enter a string: &quot;) <br/></p>
+<p>if is_palindrome(string): <br/></p>
+<p>    print(f&quot;'{string}' is a palindrome.&quot;) <br/></p>
+<p>else: <br/></p>
+<p>     print(f&quot;'{string}' is not a palindrome.&quot;) <br/></p>
+<p> <br/></p>
+<p><b>OUTPUT: <br/></b></p>
+<p><b> <br/></b>1. Enter a string: rar <br/></p>
+<p>'rar' is a palindrome. <br/> <br/></p>
+<p>2. Enter a string: ram <br/>'ram' is not a palindrome. <br/></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 6 <br/> <br/></p>
+<p><b>PROGRAM-2 <br/> <br/>2a) Defined as a function F as Fn = Fn-1 + Fn-2. Write a Python program that accepts a <br/></b></p>
+<p><b>value for N (where N &gt;0) as input and pass this value to the function. Display a <br/>suitable error message if the condition for input value is not followed. <br/></b></p>
+<p>def fn(n): <br/></p>
+<p>    if n == 1:  <br/></p>
+<p>        return 0 <br/></p>
+<p>    elif n == 2:  <br/></p>
+<p>        return 1 <br/></p>
+<p>    else: <br/></p>
+<p>        return fn(n-1) + fn(n-2) <br/></p>
+<p>num = int(input(&quot;Enter a number : &quot;))  <br/></p>
+<p>if num &gt; 0: <br/></p>
+<p>    print(&quot;fn(&quot;, num, &quot;) = &quot;,fn(num) , sep =&quot;&quot;) <br/></p>
+<p>else: <br/></p>
+<p>     print(&quot;Error in input&quot;)<b> <br/></b></p>
+<p> <br/></p>
+<p><b>OUTPUT:  <br/></b> <br/></p>
+<p>1. Enter a number : 5 <br/>            fn(5) = 3 <br/> <br/></p>
+<p>2. Enter a number : -4 <br/>Error in input <br/> <br/> <br/> <br/> <br/> <br/></p>
+<p> <br/><b> <br/> <br/> <br/></b></p>
+<p><b> <br/> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 7 <br/> <br/></p>
+<p><b>2b) Develop a python program to convert binary to decimal, octal to hexadecimal using <br/>functions. <br/></b></p>
+<p>def BinToDec(x):  <br/>    dec = 0 <br/>    i = 0 <br/>    while x&gt;0:  <br/>        r = x%10  <br/>        if r!=0 and r!=1:  <br/>            print(&quot;Enter a valid Binary number&quot;) <br/>            return 0  <br/>        else: <br/>            dec = dec + r*2**i  <br/>            x = x // 10  <br/>            i += 1  <br/>    return dec  <br/>def OctaToHexa(n):  <br/>    num = n <br/>    dec = 0 <br/>    base = 1 <br/>    temp = num  <br/>    while temp:  <br/>        r = temp % 10  <br/>        temp = temp // 10  <br/>        dec += r * base  <br/>        base = base * 8  <br/>    result = ' '  <br/>    while dec != 0:  <br/>        temp = 0 <br/>        temp = dec % 16  <br/>        if temp &lt; 10:  <br/>            result = str(temp) + result  <br/>        else: <br/>            result = chr(temp + 55) + result  <br/>        dec = dec // 16 <br/>    return result  <br/> <br/>x = int(input(&quot;Enter a Binary number &quot;)) <br/>result = BinToDec(x) <br/>if result: <br/>    print(&quot;The Decimal equivalent of {0} is {1}&quot;.format(x, result)) </p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 8 <br/> <br/></p>
+<p>y = int(input(&quot;Enter a Octal number &quot;)) <br/>result = OctaToHexa(y) <br/>print(result) <br/>if result: <br/>    print(&quot;The Hexa Decimal equivalent of {0} is {1}&quot;.format(y, result)) <br/> <br/></p>
+<p><b> <br/></b></p>
+<p><b>OUTPUT:  <br/></b></p>
+<p><b> <br/></b> Enter a Binary number 1111 <br/> The Decimal equivalent of 1111 is 15 <br/> Enter a Octal number 146523 <br/> CD53  <br/> The Hexa Decimal equivalent of 146523 is CD53  <br/></p>
+<p><b> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 9 <br/> <br/></p>
+<p><b>PROGRAM-3 <br/></b></p>
+<p><b> <br/>3a) Write a Python program that accepts a sentence and find the number of words, <br/></b></p>
+<p><b>digits, uppercase letters, and lowercase letters. <br/></b></p>
+<p>x = input(&quot;Enter a sentence&quot;)  <br/></p>
+<p>y = x <br/></p>
+<p>print(&quot;There are&quot;,len(x.split()),&quot; words in the sentence&quot;)  <br/></p>
+<p>digits,upper,lower=0,0,0 <br/></p>
+<p>for i in x:  <br/></p>
+<p>    if i.isdigit():  <br/></p>
+<p>        digits+=1 <br/></p>
+<p>    elif i.isupper():  <br/></p>
+<p>        upper+=1 <br/></p>
+<p>    elif i.islower():  <br/></p>
+<p>        lower+=1 <br/></p>
+<p>print(&quot;There are {0} digits, {1} upper case characters and {2} lower case characters in <br/>the sentence&quot;.format(digits,upper,lower)) <br/></p>
+<p> <br/></p>
+<p><b>OUTPUT:  <br/></b> <br/></p>
+<p> Enter a sentence Rama went to Devaraja market to pick 2 kgs of vegetable  <br/> There are 11 words in the sentence <br/> There are 1 digits, 2 upper case characters and 42 lower case characters in the sentence <br/></p>
+<p> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/></p>
+<p> <br/> <br/> </p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 10 <br/> <br/></p>
+<p><b>3b) Write a Python program to find the string similarity between two given strings. <br/></b>x = input(&quot;Enter first String&quot;)  <br/>y = input(&quot;Enter second String&quot;)  <br/>x = x.strip()  <br/>y = y.strip() <br/>sim=0  <br/>if len(x)&gt;len(y):  <br/>    xx = x  <br/>    yy = y  <br/>else: <br/>    xx = y <br/>    yy = x <br/>j=0 <br/>for i in yy:  <br/>    if i==xx[j]:  <br/>        sim+=1  <br/>    else: <br/>        pass  <br/>    j+=1  <br/>similarity = (sim/len(xx))  <br/>print(&quot;The similarity between the two given strings is&quot;, similarity) <br/> <br/></p>
+<p><b>OUTPUT:  <br/></b></p>
+<p><b> <br/></b>1. Enter first String Python Exercises  <br/></p>
+<p>       Enter second String Python Exercises  <br/>       The similarity between the two given strings is 1.0 <br/> <br/></p>
+<p>2. Enter first String Python Lab <br/>       Enter second String Python Laboratory <br/>       The similarity between the two given strings is 0.5882352941176471 <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 11 <br/> <br/></p>
+<p><b>MATPLOTLIB <br/></b> <br/></p>
+<p>Matplotlib is a popular Python library for creating static, animated, and interactive <br/></p>
+<p>visualizations in a variety of formats. It is widely used for producing high-quality plots and <br/></p>
+<p>charts in scientific computing, data analysis, and machine learning. Matplotlib provides a <br/></p>
+<p>range of functions for creating different types of plots, including line plots, scatter plots, <br/></p>
+<p>bar plots, histograms, and more. Different visualizations plots are as follows:  <br/></p>
+<p> <br/></p>
+<p><b>Scatter plots: </b>Scatter plots are particularly useful when exploring the relationship between <br/></p>
+<p>two continuous variables. They excel at revealing patterns, trends, and correlations <br/></p>
+<p>between data points. These visualizations are adept at identifying outliers, showcasing <br/></p>
+<p>them as points deviating from the main cluster. By providing a clear picture of the <br/></p>
+<p>distribution of data points along two axes, scatter plots aid in understanding the spread and <br/></p>
+<p>density of values. Moreover, they are valuable for comparing different datasets, <br/></p>
+<p>recognizing similarities or differences.  <br/></p>
+<p> <br/></p>
+<p><b>Histogram: </b>A histogram is a graphical representation of the distribution of a dataset, <br/></p>
+<p>typically used for continuous or discrete data. It provides a way to visualize the frequency <br/></p>
+<p>or count of data points within specific intervals or bins. In a histogram, the data is divided <br/></p>
+<p>into contiguous, non-overlapping intervals, and the height of each bar in the chart <br/></p>
+<p>represents the frequency or count of data points falling within that interval.  <br/></p>
+<p>To create a histogram, you divide the range of the data into bins or intervals and then count <br/></p>
+<p>the number of data points that fall into each bin. The resulting bar chart, with the bars <br/></p>
+<p>representing these counts, provides a visual summary of the data's distribution.  <br/></p>
+<p> <br/></p>
+<p><b>Bar chart: </b>A bar chart is a graphical representation of data in which rectangular bars are <br/></p>
+<p>used to represent the values of different categories. Each bar's length is proportional to the <br/></p>
+<p>value it represents. Bar charts are effective for comparing discrete categories or groups and <br/></p>
+<p>are particularly useful for showing the distribution of categorical data.  <br/></p>
+<p><b>Pie chart: </b>Pie charts are a type of data visualization that is commonly used to represent the <br/></p>
+<p>proportions of different parts of a whole. The primary purpose of a pie chart is to show the <br/></p>
+<p>relationship of parts to a whole and to illustrate how each part contributes to the total.  </p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 12 <br/> <br/></p>
+<p><b>SEABORN <br/></b> <br/></p>
+<p>Seaborn is a statistical data visualization library built on top of Matplotlib in Python. It <br/></p>
+<p>provides an interface for creating informative and attractive statistical graphics. Seaborn <br/></p>
+<p>comes with several built-in themes and color palettes to make it easy to create aesthetically <br/></p>
+<p>pleasing visualizations. It is particularly useful for exploring complex datasets and <br/></p>
+<p>understanding relationships between variables.  <br/></p>
+<p><b> <br/></b></p>
+<p><b>BOKEH <br/></b></p>
+<p>Bokeh is a Python interactive visualization library that targets modern web browsers for <br/></p>
+<p>presentation. It allows you to create interactive, web-ready visualizations in Python. Bokeh <br/></p>
+<p>generates HTML and JavaScript code that can be embedded into web pages. This allows <br/></p>
+<p>you to create interactive visualizations that can be easily shared on the web.  <br/></p>
+<p> <br/></p>
+<p><b>PLOTLY</b> <br/></p>
+<p>Plotly is a versatile Python library for creating interactive and publication-quality plots and <br/></p>
+<p>dashboards. It supports a wide range of chart types. Plotly excels at creating interactive <br/></p>
+<p>plots. Users can zoom, pan, hover over data points for additional information, and perform <br/></p>
+<p>other interactive actions directly within    the plot. Its ability to create web-based dashboards <br/></p>
+<p>makes it a powerful tool for building data-driven applications. <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> <br/> <br/> <br/> <br/></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 13 <br/> <br/></p>
+<p><b>PROGRAM-4 <br/> <br/></b></p>
+<p><b>4a) Write a Python program to demonstrate how to draw a Bar Plot using Matplotlib. <br/> <br/>Dataset (Cars_Barplot.csv) <br/></b></p>
+<p><b>Car Sales <br/></b>Audi 419 <br/></p>
+<p>BMW 263 <br/>Mercedes 330 <br/></p>
+<p>Honda 760 <br/><b> <br/></b></p>
+<p>import matplotlib.pyplot as plt <br/></p>
+<p>import pandas as pd <br/></p>
+<p># Initialize the lists for X and Y <br/></p>
+<p>data = pd.read_csv(&quot;Cars_Barplot.csv&quot;) <br/></p>
+<p>df = pd.DataFrame(data) <br/></p>
+<p>X = list(df.iloc[:, 0]) <br/></p>
+<p>Y = list(df.iloc[:, 1]) <br/></p>
+<p># Plot the data using bar() method <br/></p>
+<p>plt.bar(X, Y, color='g') <br/></p>
+<p>plt.title(&quot;Used Car Sales&quot;) <br/></p>
+<p>plt.xlabel(&quot;Car&quot;) <br/></p>
+<p>plt.ylabel(&quot;Number Sold&quot;) <br/></p>
+<p># Show the plot <br/></p>
+<p>plt.show() <br/><b> <br/></b></p>
+<p><b>OUTPUT</b> <br/></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 14 <br/> <br/></p>
+<p><b>OR <br/> <br/></b></p>
+<p>import matplotlib.pyplot as plt <br/></p>
+<p># Data for the bar plot <br/></p>
+<p>categories=['CategoryA','CategoryB','CategoryC','CategoryD']  <br/></p>
+<p>values = [10, 25, 15, 30] <br/></p>
+<p># Create a bar plot <br/></p>
+<p>plt.bar(categories, values) <br/></p>
+<p>#Addlabelsandatitle  <br/></p>
+<p>plt.xlabel('Categories')  <br/></p>
+<p>plt.ylabel('Values') <br/></p>
+<p>plt.title('Bar Plot Example') <br/></p>
+<p># Display the plot <br/></p>
+<p>plt.show() <br/></p>
+<p><b> <br/></b></p>
+<p><b>OUTPUT: <br/></b></p>
+<p> <br/> <br/></p>
+<p> <br/></p>
+<p> </p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 15 <br/> <br/></p>
+<p><b>4b) Write a Python program to demonstrate how to draw a Scatter Plot using Matplotlib. <br/> <br/></b></p>
+<p><b>Dataset (Cars.csv) <br/> <br/></b></p>
+<p><b>Id Model Price Age Mfg._Month Mfg._<br/>Year <br/></b></p>
+<p><b>KM Fuel_<br/>Type <br/></b></p>
+<p><b>HP Met_<br/>Color <br/></b></p>
+<p><b>Auto<br/>matic <br/></b></p>
+<p><b>cc Doors <br/></b></p>
+<p><b>1 </b>TOYOT<br/>A <br/>Corolla <br/>2.0 D4D <br/>HATCH<br/>B <br/>TERRA <br/>2/3- <br/>Doors <br/></p>
+<p>13500 23 10 2002 46986 Diesel 90 1 0 2000 3 <br/></p>
+<p><b>2 </b>TOYOT<br/>A <br/>Corolla <br/>2.0 D4D <br/>HATCH<br/>B <br/>TERRA <br/>2/3- <br/>Doors <br/></p>
+<p>13750 23 10 2002 72937 Diesel 90 1 0 2000 3 <br/></p>
+<p><b>3 </b>?TOYOT<br/>ACorolla <br/>2.0 D4D <br/>HATCH<br/>B <br/>TERRA <br/>2/3- <br/>Doors <br/></p>
+<p>13950 24 9 2002 41711 Diesel 90 1 0 2000 3 <br/></p>
+<p><b>4 </b>TOYOT<br/>A <br/>Corolla <br/>2.0 D4D <br/>HATCH<br/>B <br/>TERRA <br/>2/3- <br/>Doors <br/></p>
+<p>14950 26 7 2002 48000 Diesel 90 0 0 2000 3 <br/></p>
+<p>5 TOYOT<br/>A <br/>Corolla <br/>2.0 D4D <br/>HATCH<br/>B SOL <br/>2/3-<br/>Doors <br/></p>
+<p>13750 30 3 2002 38500 Diesel 90 0 0 2000 3 <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p> </p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 16 <br/> <br/></p>
+<p># import the necessary libraries <br/></p>
+<p>import pandas as pd <br/></p>
+<p>import numpy as np <br/></p>
+<p>import matplotlib.pyplot as plt <br/></p>
+<p># Importing data. <br/></p>
+<p>cars_data = pd.read_csv(&quot;Cars.csv&quot;) <br/></p>
+<p># Create scatter plot using two variables, Age and Price. <br/></p>
+<p>plt.scatter(cars_data['Age'],cars_data['Price'],c='blue') <br/></p>
+<p># To set the title <br/></p>
+<p>plt.title('Scatter plot of Price vs Age of the Cars') <br/></p>
+<p># To set the x and y axis labels. <br/></p>
+<p>plt.xlabel('Age (months)') <br/></p>
+<p>plt.ylabel('Price (Euros)') <br/></p>
+<p># To show the scatter plot <br/></p>
+<p>   plt.show() <br/></p>
+<p><b> <br/></b></p>
+<p><b>OUTPUT:</b> <br/></p>
+<p> <br/><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 17 <br/> <br/></p>
+<p><b>OR <br/></b></p>
+<p>import matplotlib.pyplot as plt <br/></p>
+<p># Data for the scatter plot <br/></p>
+<p>x = [1, 2, 3, 4, 5] <br/></p>
+<p>y = [10, 15, 13, 17, 20] <br/></p>
+<p># Create a scatter plot <br/></p>
+<p>plt.scatter(x, y, marker='o', color='blue', label='Data Points') <br/></p>
+<p># Add labels and a title <br/></p>
+<p>plt.xlabel('X-axis')  <br/></p>
+<p>plt.ylabel('Y-axis') <br/></p>
+<p>plt.title('Scatter Plot Example') <br/></p>
+<p># Add a legend <br/></p>
+<p>plt.legend() <br/></p>
+<p># Display the plot <br/></p>
+<p>plt.show() <br/></p>
+<p><b> <br/></b></p>
+<p><b>OUTPUT:</b> <br/></p>
+<p><b> <br/></b></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 18 <br/> <br/></p>
+<p><b>PROGRAM-5 <br/> <br/></b></p>
+<p><b>5a) Write a Python program to demonstrate how to draw a Histogram using <br/>Matplotlib <br/></b></p>
+<p> # import the necessary libraries  <br/></p>
+<p> # Pandas library for data frames  <br/></p>
+<p> import pandas as pd  <br/></p>
+<p> # numpy library to do numerical operations  <br/></p>
+<p> import numpy as np  <br/></p>
+<p> import matplotlib.pyplot as plt  <br/></p>
+<p> cars_data = pd.read_csv(&quot;cars.csv&quot;)  <br/></p>
+<p> plt.title('Histogram for distance travelled in KiloMeter')  <br/></p>
+<p> plt.hist(cars_data ['KM'], color='green', edgecolor='white', bins=5)  <br/></p>
+<p> plt.xlabel('Kilometer')  <br/></p>
+<p> plt.ylabel('Frequency')  <br/></p>
+<p> plt.show() <br/><b> <br/></b></p>
+<p><b>OUTPUT:</b> <br/></p>
+<p> </p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 19 <br/> <br/></p>
+<p><b>OR <br/></b></p>
+<p>import numpy as np <br/></p>
+<p># Sample data: Student grades <br/></p>
+<p>grades = [75, 82, 92, 88, 78, 90, 85, 95, 70, 87, 93, 79, 81, 86, 89, 94, 73, 84, 91, 77] <br/></p>
+<p># Create a histogram <br/></p>
+<p>plt.figure(figsize=(8, 6)) <br/></p>
+<p>plt.hist(grades, bins=[70, 75, 80, 85, 90, 95, 100], edgecolor='black', alpha=0.7, <br/>color='skyblue') <br/></p>
+<p># Customize labels and title <br/></p>
+<p>plt.xlabel('Grades') <br/></p>
+<p>plt.ylabel('Frequency') <br/></p>
+<p>plt.title('Grade Distribution in a Class') <br/></p>
+<p># Set the x-axis limits <br/></p>
+<p>plt.xlim(70,100) <br/></p>
+<p># Display the plot <br/></p>
+<p>plt.show() <br/></p>
+<p> <br/></p>
+<p><b>OUTPUT:</b> <br/></p>
+<p><b> <br/> <br/></b></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 20 <br/> <br/></p>
+<p><b>5b)</b> <b>Write a Python program to demonstrate how to draw a Pie chart using Matplotlib <br/></b></p>
+<p># Import libraries <br/></p>
+<p>import matplotlib.pyplot as plt <br/></p>
+<p>import pandas as pd <br/></p>
+<p># Creating dataset <br/></p>
+<p>cars_data = pd.read_csv(&quot;Cars_Barplot.csv&quot;) <br/></p>
+<p>cars = cars_data[&quot;Car&quot;] <br/></p>
+<p>data = cars_data[&quot;Sales&quot;] <br/></p>
+<p># Creating plot <br/></p>
+<p>fig = plt.figure(figsize =(10, 7)) <br/></p>
+<p>plt.pie(data, labels = cars) <br/></p>
+<p># show plot <br/></p>
+<p>plt.show() <br/> <br/></p>
+<p><b>OUTPUT:</b> <br/></p>
+<p> <br/><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 21 <br/> <br/></p>
+<p><b>OR <br/></b></p>
+<p>import matplotlib.pyplot as plt <br/></p>
+<p># Data for the household budget pie chart <br/></p>
+<p>categories=['Housing','Utilities','Transportation','Food','Entertainment','Savings']  <br/></p>
+<p>expenses = [30, 10, 15, 20, 10, 15] <br/></p>
+<p>colors=['#ff9999','#66b3ff','#99ff99','#ffcc99','#c2c2f0','#ffb3e6']  <br/></p>
+<p>explode = (0.1, 0.1, 0, 0, 0, 0) <br/></p>
+<p># Create a pie chart <br/></p>
+<p>plt.pie(expenses, labels=categories, autopct='%1.1f%%', startangle=140, colors=colors, <br/>explode=explode) <br/></p>
+<p># Add a title <br/></p>
+<p>plt.title('Household Budget Expenses') <br/></p>
+<p># Display the plot <br/></p>
+<p>plt.show() <br/></p>
+<p> <br/></p>
+<p><b>OUTPUT: <br/></b></p>
+<p> <br/> <br/></p>
+<p> <br/></p>
+<p> <br/></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 22 <br/> <br/></p>
+<p><b>PROGRAM-6 <br/> <br/></b></p>
+<p><b>6a) Write a Python program to illustrate Linear Plotting using Matplotlib <br/></b></p>
+<p>import matplotlib.pyplot as plt <br/></p>
+<p>def linear_plot(): <br/></p>
+<p># Sample data <br/></p>
+<p>    x = [1, 2, 3, 4, 5] <br/></p>
+<p>    y = [3, 7, 9, 11, 14] <br/></p>
+<p>    # Plotting the data <br/></p>
+<p>    plt.plot(x, y, label='Linear Function: y = 2x') <br/></p>
+<p>    # Adding labels and title <br/></p>
+<p>    plt.xlabel('X-axis') <br/></p>
+<p>    plt.ylabel('Y-axis') <br/></p>
+<p>    plt.title('Linear Plot Example') <br/></p>
+<p>    plt.legend() <br/></p>
+<p>    plt.show() <br/></p>
+<p>    # Call the function to generate the plot <br/></p>
+<p>linear_plot() <br/></p>
+<p> <br/></p>
+<p><b>OUTPUT:</b> <br/></p>
+<p>  <br/> </p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 23 <br/> <br/></p>
+<p><b>OR <br/></b>import matplotlib.pyplot as plt <br/># Data for the linear plot <br/>years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022] <br/>revenue = [50000, 60000, 65000, 75000, 80000, 90000, 100000, 110000] <br/># Create a linear plot <br/>plt.plot(years,revenue, marker='o', color='green', linestyle='-', label='Annual Revenue') <br/># Add labels and a title <br/>plt.xlabel('Year') <br/>plt.ylabel('Revenue ($)') <br/>plt.title('Company Annual Revenue Over the Years') <br/># Add a grid <br/>plt.grid(True, linestyle='--', alpha=0.7) <br/># Add a legend <br/>plt.legend() <br/># Display the plot <br/>plt.show() <br/> <br/></p>
+<p><b>OUTPUT: <br/></b></p>
+<p> <br/> <br/> <br/></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 24 <br/> <br/></p>
+<p><b>6b) Write a Python program to illustrate liner plotting with line formatting using <br/>Matplotlib <br/></b> <br/>import matplotlib.pyplot as plt <br/></p>
+<p>def formatted_linear_plot(): <br/></p>
+<p># Sample data <br/></p>
+<p>    x = [1, 2, 3, 4, 5, 6] <br/></p>
+<p>    y = [3, 7, 9, 11, 14, 18] <br/></p>
+<p>    plt.plot(x, y, marker='o', linestyle='-', color='b', label='Linear Function: y = 2x') <br/></p>
+<p>    # Adding labels and title <br/></p>
+<p>    plt.xlabel('X-axis') <br/></p>
+<p>    plt.ylabel('Y-axis') <br/></p>
+<p>    plt.title('Formatted Linear Plot Example') <br/></p>
+<p>    plt.legend() <br/></p>
+<p>    plt.grid(True) # Add a grid for better readability <br/></p>
+<p>    plt.show() <br/></p>
+<p># Call the function to generate the formatted linear plot <br/></p>
+<p>formatted_linear_plot() <br/></p>
+<p> <br/></p>
+<p><b>OUTPUT: <br/></b></p>
+<p> </p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 25 <br/> <br/></p>
+<p><b>OR <br/></b>import matplotlib.pyplot as plt <br/></p>
+<p># Data for the linear plot <br/></p>
+<p>years = [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022] <br/></p>
+<p>revenue = [50000, 60000, 65000, 75000, 80000, 90000, 100000, 110000] <br/></p>
+<p># Create a linear plot with line formatting <br/></p>
+<p>plt.plot(years,revenue, marker='o', linestyle='-', color='green', label='Annual Revenue', <br/></p>
+<p>linewidth=2, markersize=8) <br/></p>
+<p># Add labels and a title <br/></p>
+<p>plt.xlabel('Year') <br/></p>
+<p>plt.ylabel('Revenue ($)') <br/></p>
+<p>plt.title('Company Annual Revenue Over the Years') <br/></p>
+<p># Add a grid <br/></p>
+<p>plt.grid(True, linestyle=':', alpha=0.7) <br/></p>
+<p># Add a legend <br/></p>
+<p>plt.legend() <br/></p>
+<p># Display the plot <br/></p>
+<p>plt.show() <br/></p>
+<p> <br/></p>
+<p><b>OUTPUT: <br/></b></p>
+<p> </p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 26 <br/> <br/></p>
+<p><b>PROGRAM-7 <br/> <br/>7a) Write a Python program which explains uses of customizing seaborn plots with <br/>Aesthetic functions. <br/></b>import seaborn as sns <br/></p>
+<p>import matplotlib.pyplot as plt <br/></p>
+<p># Load a sample dataset <br/></p>
+<p>tips = sns.load_dataset(&quot;tips&quot;) <br/></p>
+<p># Set the aesthetic style of the plot <br/></p>
+<p>sns.set(style=&quot;whitegrid&quot;) <br/></p>
+<p># Create a scatter plot using Seaborn <br/></p>
+<p>sns.scatterplot(x=&quot;total_bill&quot;, y=&quot;tip&quot;, style=&quot;time&quot;, size=&quot;size&quot;, data=tips) <br/></p>
+<p># Customize the plot further using Seaborn aesthetic functions <br/></p>
+<p>sns.despine() # Remove the top and right spines from the plot <br/></p>
+<p># Set custom labels and title <br/></p>
+<p>plt.xlabel(&quot;Total Bill ($)&quot;) <br/></p>
+<p>plt.ylabel(&quot;Tip ($)&quot;) <br/></p>
+<p>plt.title(&quot;Scatter Plot of Total Bill vs Tip&quot;) <br/></p>
+<p># Show the plot <br/></p>
+<p>plt.show() <br/> <br/></p>
+<p><b>OUTPUT: <br/></b></p>
+<p> </p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 27 <br/> <br/></p>
+<p><b>PROGRAM-8 <br/> <br/></b></p>
+<p><b>8a) Write a Python program to explain working with bokeh line graph using Annotations <br/>and Legends. <br/></b></p>
+<p>from bokeh.plotting import figure, output_file, show <br/></p>
+<p>from bokeh.models import Label <br/></p>
+<p># Sample data <br/></p>
+<p>x = [1, 2, 3, 4, 5] <br/></p>
+<p>y = [2, 4, 6, 8, 10] <br/></p>
+<p># Output to static HTML file <br/></p>
+<p>output_file(&quot;line_graph_with_annotations.html&quot;) <br/></p>
+<p># Create a figure <br/></p>
+<p>p = figure(title=&quot;Bokeh Line Graph with Annotations&quot;, x_axis_label='X-axis', <br/></p>
+<p>y_axis_label='Y-axis') <br/></p>
+<p># Plot the line <br/></p>
+<p>p.line(x, y, line_width=2, line_color=&quot;blue&quot;, legend_label=&quot;Line Function: y = 2x&quot;) <br/></p>
+<p># Add an annotation <br/></p>
+<p>annotation = Label(x=3, y=6, text=&quot;Important Point&quot;, text_font_size=&quot;10pt&quot;, <br/></p>
+<p>text_color=&quot;red&quot;) <br/></p>
+<p>p.add_layout(annotation) <br/></p>
+<p># Add legend <br/></p>
+<p>p.legend.location = &quot;top_left&quot; <br/></p>
+<p>p.legend.click_policy = &quot;hide&quot; <br/></p>
+<p># Show the plot <br/></p>
+<p>show(p) <br/></p>
+<p> <br/></p>
+<p> <br/> <br/></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 28 <br/> <br/></p>
+<p><b>OUTPUT: <br/></b> <br/></p>
+<p> <br/> <br/> <br/> <br/> <br/> <br/> <br/></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 29 <br/> <br/></p>
+<p><b>OR <br/></b>from bokeh.plotting import figure, show <br/></p>
+<p>from bokeh.models import ColumnDataSource <br/></p>
+<p>from bokeh.models.annotations import Title, Legend, LegendItem <br/></p>
+<p>from bokeh.io import output_notebook <br/></p>
+<p># Sample data <br/></p>
+<p>x = [1, 2, 3, 4, 5] <br/></p>
+<p>y1 = [2, 5, 8, 6, 7] <br/></p>
+<p>y2 = [4, 6, 7, 5, 9] <br/></p>
+<p># Create a Bokeh figure <br/></p>
+<p>p = figure(title=&quot;Line Graph with Annotations and Legends&quot;, x_axis_label=&quot;X-axis&quot;, <br/></p>
+<p>y_axis_label=&quot;Y-axis&quot;) <br/></p>
+<p># Add data sources <br/></p>
+<p>source1=ColumnDataSource(data=dict(x=x,y=y1))  <br/></p>
+<p>source2 = ColumnDataSource(data=dict(x=x, y=y2)) <br/></p>
+<p># Plot the first line <br/></p>
+<p>line1 = p.line('x', 'y', source=source1, line_width=2, line_color=&quot;blue&quot;, legend_label=&quot;Line <br/></p>
+<p>1&quot;) <br/></p>
+<p># Plot the second line <br/></p>
+<p>line2 = p.line('x', 'y', source=source2, line_width=2, line_color=&quot;red&quot;, legend_label=&quot;Line 2&quot;) <br/></p>
+<p># Add an annotation <br/></p>
+<p>annotation=Title(text=&quot;AnnotationExample&quot;,text_font_size=&quot;14px&quot;)  <br/></p>
+<p>p.add_layout(annotation, 'above') <br/></p>
+<p># Create a legend <br/></p>
+<p>legend=Legend(items=[LegendItem(label=&quot;Line1&quot;,renderers=[line1]),LegendItem(label=&quot;Lin<br/></p>
+<p>e2&quot;,renderers=[line2])])  <br/></p>
+<p>p.add_layout(legend, 'above') <br/></p>
+<p># Show the plot <br/></p>
+<p>output_notebook() <br/></p>
+<p>show(p) <br/></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 30 <br/> <br/></p>
+<p><b>OUTPUT: <br/></b></p>
+<p> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> </p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 31 <br/> <br/></p>
+<p><b>8b) Write a Python program for plotting different types of plots using Bokeh <br/> <br/></b>from bokeh.plotting import figure, show, output_file <br/>from bokeh.models import ColumnDataSource <br/>from bokeh.layouts import layout <br/>import random <br/>import numpy as np <br/> <br/></p>
+<p># Generate some sample data <br/>x = list(range(1, 11)) <br/>y1 = [random.randint(1, 10) for inx in x]  # Corrected typo here <br/>y2 = [random.randint(1, 10) for _ in x] <br/> <br/></p>
+<p># Create a Bokeh figure with custom plot dimensions <br/>p1 = figure(title=&quot;LinePlot&quot;, x_axis_label=&quot;X-axis&quot;, y_axis_label=&quot;Y-axis&quot;, plot_width=400, <br/>plot_height=300) <br/>p1.line(x, y1, line_width=2, line_color=&quot;blue&quot;) <br/> <br/>p2 = figure(title=&quot;ScatterPlot&quot;, x_axis_label=&quot;X-axis&quot;, y_axis_label=&quot;Y-axis&quot;, <br/>plot_width=400, plot_height=300) <br/>p2.scatter(x, y2, size=10, color=&quot;red&quot;, marker=&quot;circle&quot;) <br/> <br/>p3 = figure(title=&quot;BarPlot&quot;, x_axis_label=&quot;X-axis&quot;, y_axis_label=&quot;Y-axis&quot;, plot_width=400, <br/>plot_height=300) <br/>p3.vbar(x=x, top=y1, width=0.5, color=&quot;green&quot;) <br/> <br/>p4 = figure(title=&quot;Histogram&quot;, x_axis_label=&quot;Value&quot;, y_axis_label=&quot;Frequency&quot;, <br/>plot_width=400, plot_height=300) <br/>hist, edges = np.histogram(y1, bins=5) <br/>p4.quad(top=hist, bottom=0, left=edges[:-1], right=edges[1:], fill_color=&quot;purple&quot;, <br/>line_color=&quot;black&quot;) <br/> <br/># Create a layout with the plots <br/>layout = layout([ <br/>    [p1, p2], <br/>    [p3, p4] <br/>]) <br/># Output to an HTML file <br/> <br/></p>
+<p>output_file(&quot;bokeh_plots.html&quot;) <br/># Show the plots <br/>show(layout) </p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 32 <br/> <br/></p>
+<p><b>OUTPUT: <br/></b> <br/></p>
+<p> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/></p>
+<p><b> <br/></b></p>
+<p><b> <br/></b></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 33 <br/> <br/></p>
+<p><b>PROGRAM-9 <br/></b> <br/><b>9a) Write a Python program to draw 3D Plots using Plotly Libraries.</b> <br/></p>
+<p>import plotly.graph_objects as go <br/></p>
+<p>import numpy as np <br/></p>
+<p># Create data for the 3D surface plot <br/></p>
+<p>x = np.linspace(-5, 5, 100) <br/></p>
+<p>y = np.linspace(-5, 5, 100) <br/></p>
+<p>x, y = np.meshgrid(x, y) <br/></p>
+<p>z = np.sin(np.sqrt(x**2 + y**2)) <br/></p>
+<p>fig = go.Figure(data=[go.Surface(z=z, x=x, y=y)]) <br/></p>
+<p>fig.update_layout(scene=dict(xaxis_title='XAxis', yaxis_title='YAxis', zaxis_title='Z <br/></p>
+<p>Axis',) title='3D Surface Plot Example',) <br/></p>
+<p>fig.show() <br/></p>
+<p> <br/></p>
+<p><b>OUTPUT: <br/></b></p>
+<p><b> <br/></b></p>
+<p> <br/> <br/></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 34 <br/> <br/></p>
+<p><b>PROGRAM-10 <br/></b> <br/><b>10a). Write a Python program to draw Time Series using Plotly Libraries. <br/> <br/></b>import plotly.graph_objs as go <br/>import plotly.offline as pyo <br/>import pandas as pd <br/> <br/># Sample time series data (you can load your own data) <br/>data = {'Date': pd.date_range(start='2023-01-01', periods=10, freq='D'), 'Value': [25, 30, 35, <br/>40, 45, 50, 55, 60, 65, 70]} <br/>df = pd.DataFrame(data) <br/> <br/># Create a time series plot <br/>trace = go.Scatter(x=df['Date'], y=df['Value'], mode='lines', name='Time Series') <br/> <br/>layout = go.Layout(title='Time Series Plot', xaxis=dict(title='Date'), yaxis=dict(title='Value')) <br/> <br/># Include a line break or proper indentation <br/>fig = go.Figure(data=[trace], layout=layout) <br/> <br/># Show the plot in a Jupyter Notebook or export it as an HTML file <br/>pyo.plot(fig, filename='time_series_plot.html') <br/><b> <br/></b></p>
+<p><b>OUTPUT: <br/></b>'time_series_plot.html' <br/></p>
+<p><b> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 35 <br/> <br/></p>
+<p><b>10 b) Write a Python program for creating Maps using Plotly Libraries. <br/> <br/></b>import plotly.express as px <br/># Sample data for demonstration <br/>data = { <br/>'City': ['New York', 'San Francisco', 'Los Angeles', 'Chicago', 'Houston'], <br/>'Lat': [40.7128, 37.7749, 34.0522, 41.8781, 29.7604], <br/>'Lon': [-74.0060, -122.4194, -118.2437, -87.6298, -95.3698], <br/>'Population': [8175133, 870887, 3971883, 2716000, 2328000] <br/>} <br/># Create a map <br/>fig = px.scatter_geo(data, lat='Lat', lon='Lon', text='City', size='Population', <br/>projection='natural earth', title='Population of Cities') <br/>fig.update_traces(textposition='top center') <br/>fig.show() <br/> <br/></p>
+<p><b>OUTPUT: <br/></b></p>
+<p> <br/><b> <br/> </b></p>
+
+</div></div>
+<div style="page-break-before:always; page-break-after:always"><div><p>            DATA VISUALIZATION WITH PYTHON (BCS358D)                                                            <br/></p>
+<p>Dept. of  ISE                              Bangalore Institute Of Technology Page 36 <br/> <br/></p>
+<p><b>OR <br/></b>import plotly.express as px <br/>import pandas as pd <br/># Load your dataset (ensure it has 'lat' and 'lng' columns for latitude and longitude) <br/>data = { <br/>&quot;City&quot;: [&quot;Bengaluru&quot;, &quot;Mysuru&quot;, &quot;Belagavi&quot;, &quot;Kalburgi&quot;, &quot;Davanagere&quot;, &quot;New Delhi&quot;], <br/>&quot;Lat&quot;: [12.9716, 12.2958, 15.8497, 17.3291, 14.4644, 28.6139], <br/>&quot;Lon&quot;: [77.5946, 76.6394, 74.5048, 77.2471, 75.9224, 77.2090] <br/>} <br/>df = pd.DataFrame(data) <br/># Create a scatter map plot <br/>fig = px.scatter_geo(df, lat=&quot;Lat&quot;, lon=&quot;Lon&quot;, text=&quot;City&quot;, <br/>title=&quot;Cities in India&quot;, projection=&quot;natural earth&quot;) <br/># Show the map <br/>fig.show() <br/> <br/></p>
+<p><b>OUTPUT: <br/></b></p>
+<p> <br/> </p>
+
+</div></div>
+</body></html>
